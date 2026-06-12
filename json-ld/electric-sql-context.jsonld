@@ -1,0 +1,115 @@
+{
+  "@context": {
+    "@vocab": "https://electric.ax/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Shape": "https://electric.ax/vocab#Shape",
+    "ShapeMessage": "https://electric.ax/vocab#ShapeMessage",
+    "SubsetSnapshot": "https://electric.ax/vocab#SubsetSnapshot",
+    "ShapeStream": "https://electric.ax/vocab#ShapeStream",
+    "ControlMessage": "https://electric.ax/vocab#ControlMessage",
+
+    "table": {
+      "@id": "https://electric.ax/vocab#table",
+      "@type": "xsd:string"
+    },
+    "offset": {
+      "@id": "https://electric.ax/vocab#offset",
+      "@type": "xsd:string"
+    },
+    "handle": {
+      "@id": "https://electric.ax/vocab#handle",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "https://electric.ax/vocab#key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "https://electric.ax/vocab#value"
+    },
+    "old_value": {
+      "@id": "https://electric.ax/vocab#old_value"
+    },
+    "headers": {
+      "@id": "https://electric.ax/vocab#headers"
+    },
+    "operation": {
+      "@id": "https://electric.ax/vocab#operation",
+      "@type": "xsd:string"
+    },
+    "control": {
+      "@id": "https://electric.ax/vocab#control",
+      "@type": "xsd:string"
+    },
+    "lsn": {
+      "@id": "https://electric.ax/vocab#lsn",
+      "@type": "xsd:string"
+    },
+    "op_position": {
+      "@id": "https://electric.ax/vocab#op_position",
+      "@type": "xsd:integer"
+    },
+    "txids": {
+      "@id": "https://electric.ax/vocab#txids",
+      "@container": "@list"
+    },
+    "snapshot_mark": {
+      "@id": "https://electric.ax/vocab#snapshot_mark",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "https://electric.ax/vocab#data",
+      "@container": "@list"
+    },
+    "metadata": {
+      "@id": "https://electric.ax/vocab#metadata"
+    },
+    "xmin": {
+      "@id": "https://electric.ax/vocab#xmin",
+      "@type": "xsd:string"
+    },
+    "xmax": {
+      "@id": "https://electric.ax/vocab#xmax",
+      "@type": "xsd:string"
+    },
+    "xip_list": {
+      "@id": "https://electric.ax/vocab#xip_list",
+      "@container": "@list"
+    },
+    "database_lsn": {
+      "@id": "https://electric.ax/vocab#database_lsn",
+      "@type": "xsd:string"
+    },
+    "where": {
+      "@id": "https://electric.ax/vocab#where",
+      "@type": "xsd:string"
+    },
+    "columns": {
+      "@id": "https://electric.ax/vocab#columns",
+      "@type": "xsd:string"
+    },
+    "replica": {
+      "@id": "https://electric.ax/vocab#replica",
+      "@type": "xsd:string"
+    },
+    "live": {
+      "@id": "https://electric.ax/vocab#live",
+      "@type": "xsd:boolean"
+    },
+    "live_sse": {
+      "@id": "https://electric.ax/vocab#live_sse",
+      "@type": "xsd:boolean"
+    },
+    "log": {
+      "@id": "https://electric.ax/vocab#log",
+      "@type": "xsd:string"
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version"
+  }
+}

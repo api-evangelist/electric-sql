@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12",
+  "$id": "https://electric.ax/schemas/subset-snapshot",
+  "title": "SubsetSnapshot",
+  "description": "Response object returned by the Electric HTTP API when any subset__* parameters are present. Contains a data array of operation messages and PostgreSQL snapshot metadata.",
+  "type": "object",
+  "required": ["data", "metadata"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "PostgreSQL snapshot metadata used by clients to determine which subsequent change-stream events to skip.",
+      "properties": {
+        "xmin": {
+          "type": "string",
+          "description": "Minimum active transaction ID at snapshot time (uint64 as string)."
+        },
+        "xmax": {
+          "type": "string",
+          "description": "Next transaction ID that had not yet started at snapshot time (uint64 as string)."
+        },
+        "xip_list": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Transaction IDs that were in-progress during the snapshot (uint64 as strings)."
+        },
+        "snapshot_mark": {
+          "type": "integer",
+          "description": "Random number identifying this snapshot, matching snapshot_mark in operation headers."
+        },
+        "database_lsn": {
+          "type": "string",
+          "description": "PostgreSQL write-ahead log sequence number at snapshot time."
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "description": "Array of operation messages representing the subset snapshot data (no control messages).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "type": "string",
+                "enum": ["insert", "update", "delete"]
+              },
+              "snapshot_mark": {
+                "type": "integer"
+              },
+              "lsn": { "type": "string" },
+              "op_position": { "type": "integer" },
+              "txids": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "key": { "type": "string" },
+          "value": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          },
+          "old_value": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

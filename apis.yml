@@ -46,6 +46,8 @@ apis:
     properties:
       - type: Documentation
         url: https://electric.ax/docs/api/http
+      - type: OpenAPI
+        url: openapi/electric-sql-http-sync-api-openapi.yml
   - aid: electric-sql:typescript-client
     name: Electric TypeScript Client
     description: >-
@@ -104,6 +106,16 @@ common:
     url: rate-limits/electric-sql-rate-limits.yml
   - type: FinOps
     url: finops/electric-sql-finops.yml
+  - type: JSONSchema
+    url: json-schema/electric-sql-shape-message-schema.json
+  - type: JSONSchema
+    url: json-schema/electric-sql-subset-snapshot-schema.json
+  - type: JSONLDContext
+    url: json-ld/electric-sql-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/electric-sql-vocabulary.yml
+  - type: Blogs
+    url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

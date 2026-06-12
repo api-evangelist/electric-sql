@@ -1,0 +1,51 @@
+{
+  "description": "Example response from GET /v1/shape for the 'issues' table with offset=-1 (initial sync). Returns an array of shape log messages: data operations followed by an up-to-date control message.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:3000/v1/shape?table=issues&offset=-1",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "public, max-age=60, stale-while-revalidate=300",
+      "etag": "3833821-1721812114261:0:26800584_4",
+      "electric-handle": "3833821-1721812114261",
+      "electric-offset": "26800584_4",
+      "electric-schema": "{\"id\":{\"type\":\"int4\",\"dimensions\":0},\"title\":{\"type\":\"text\",\"dimensions\":0},\"status\":{\"type\":\"text\",\"dimensions\":0,\"max_length\":8}}"
+    },
+    "body": [
+      {
+        "headers": {
+          "operation": "insert",
+          "lsn": "1234",
+          "op_position": 0
+        },
+        "key": "issue-1",
+        "value": {
+          "id": "1",
+          "title": "Electric",
+          "status": "backlog"
+        }
+      },
+      {
+        "headers": {
+          "operation": "insert",
+          "lsn": "1234",
+          "op_position": 7
+        },
+        "key": "issue-2",
+        "value": {
+          "id": "2",
+          "title": "Hello",
+          "status": "backlog"
+        }
+      },
+      {
+        "headers": {
+          "control": "up-to-date"
+        }
+      }
+    ]
+  }
+}

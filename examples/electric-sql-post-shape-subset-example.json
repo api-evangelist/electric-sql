@@ -1,0 +1,64 @@
+{
+  "description": "Example POST /v1/shape request for a subset snapshot — fetches a paginated, filtered subset of the 'issues' shape without triggering a full initial sync.",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:3000/v1/shape?table=issues&offset=-1",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "where": "status = $1",
+      "params": {
+        "1": "open"
+      },
+      "order_by": "created_at DESC",
+      "limit": 20,
+      "offset": 0
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "electric-handle": "3833821-1721812114261",
+      "electric-offset": "26800584_4",
+      "electric-schema": "{\"id\":{\"type\":\"int4\",\"dimensions\":0},\"title\":{\"type\":\"text\",\"dimensions\":0},\"status\":{\"type\":\"text\",\"dimensions\":0}}"
+    },
+    "body": {
+      "metadata": {
+        "xmin": "1000",
+        "xmax": "1050",
+        "xip_list": ["1025", "1030"],
+        "snapshot_mark": 42,
+        "database_lsn": "0/16B3F70"
+      },
+      "data": [
+        {
+          "headers": {
+            "operation": "insert",
+            "snapshot_mark": 42,
+            "txids": ["1020"]
+          },
+          "key": "issue-3",
+          "value": {
+            "id": "3",
+            "title": "High Priority",
+            "status": "open"
+          }
+        },
+        {
+          "headers": {
+            "operation": "insert",
+            "snapshot_mark": 42,
+            "txids": ["1020"]
+          },
+          "key": "issue-5",
+          "value": {
+            "id": "5",
+            "title": "Another Open Issue",
+            "status": "open"
+          }
+        }
+      ]
+    }
+  }
+}

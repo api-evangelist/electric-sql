@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12",
+  "$id": "https://electric.ax/schemas/shape-message",
+  "title": "ShapeMessage",
+  "description": "A single message in an Electric shape log — either a data operation (insert/update/delete) or a control message (up-to-date, must-refetch, snapshot-end).",
+  "type": "object",
+  "required": ["headers"],
+  "properties": {
+    "headers": {
+      "type": "object",
+      "description": "Metadata about the message.",
+      "properties": {
+        "control": {
+          "type": "string",
+          "enum": ["up-to-date", "must-refetch", "snapshot-end"],
+          "description": "Present on control messages. Indicates the type of control signal."
+        },
+        "operation": {
+          "type": "string",
+          "enum": ["insert", "update", "delete"],
+          "description": "Present on data-operation messages. The DML operation applied to the row."
+        },
+        "lsn": {
+          "type": "string",
+          "description": "PostgreSQL logical sequence number of the operation. Only present on streamed (non-initial) operations."
+        },
+        "op_position": {
+          "type": "integer",
+          "description": "Position of the operation within its transaction. Only present on streamed operations."
+        },
+        "last": {
+          "type": "boolean",
+          "description": "Whether this is the last operation in the transaction for this shape."
+        },
+        "txids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Transaction IDs this operation belongs to."
+        },
+        "snapshot_mark": {
+          "type": "integer",
+          "description": "Random number identifying which subset snapshot this operation belongs to."
+        },
+        "xmin": {
+          "type": "string",
+          "description": "Minimum transaction ID in the PostgreSQL snapshot (snapshot-end control messages only)."
+        },
+        "xmax": {
+          "type": "string",
+          "description": "Maximum transaction ID in the PostgreSQL snapshot (snapshot-end control messages only)."
+        },
+        "xip_list": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Transaction IDs in progress during snapshot (snapshot-end control messages only)."
+        }
+      }
+    },
+    "key": {
+      "type": "string",
+      "description": "Row identifier (primary key encoded as a string)."
+    },
+    "value": {
+      "type": "object",
+      "description": "The row data. For inserts: full row. For updates: PK + changed columns. For deletes: PK only. All values are Postgres display-format strings.",
+      "additionalProperties": { "type": "string" }
+    },
+    "old_value": {
+      "type": "object",
+      "description": "Previous values of changed columns for update operations when replica=full is requested.",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

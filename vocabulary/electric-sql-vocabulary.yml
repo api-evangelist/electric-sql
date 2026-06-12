@@ -1,0 +1,109 @@
+vocabulary:
+  name: ElectricSQL Vocabulary
+  description: >-
+    Core terms and concepts used in the Electric HTTP Sync API and broader
+    ElectricSQL platform. Electric streams live Postgres data changes to
+    embedded clients via an HTTP-based Shape sync protocol.
+  version: "1.0.0"
+  terms:
+    - name: Shape
+      description: >-
+        A partial replica of a Postgres table (or filtered subset thereof)
+        that Electric continuously syncs to clients. Defined by a table name
+        and an optional WHERE clause.
+
+    - name: Shape Log
+      description: >-
+        The append-only ordered sequence of messages (operations + control
+        messages) for a given shape. Clients replay this log to reconstruct
+        local state.
+
+    - name: Offset
+      description: >-
+        A cursor string that identifies a position in the shape log. Use -1
+        to begin initial sync, 'now' to skip historical data, or the last
+        received offset to continue syncing.
+
+    - name: Handle
+      description: >-
+        A server-assigned opaque string that uniquely identifies a shape
+        instance (e.g. "3833821-1721812114261"). Required for all non-initial
+        requests. Changes when a shape is invalidated.
+
+    - name: ShapeMessage
+      description: >-
+        A single entry in a shape log response. May be a data-operation
+        message (insert/update/delete) carrying a 'key' and 'value', or a
+        control message (up-to-date, must-refetch, snapshot-end).
+
+    - name: ControlMessage
+      description: >-
+        A message with a 'control' header field. Types: 'up-to-date' (client
+        has all available data), 'must-refetch' (client must discard local
+        data and resync), 'snapshot-end' (marks end of a subset snapshot with
+        PostgreSQL snapshot metadata).
+
+    - name: SubsetSnapshot
+      description: >-
+        A point-in-time snapshot of a filtered, optionally paginated portion
+        of shape data returned when any subset__* query parameters are present.
+        Includes PostgreSQL snapshot metadata (xmin, xmax, xip_list) for
+        change-stream reconciliation.
+
+    - name: ShapeStream
+      description: >-
+        The low-level TypeScript client primitive (@electric-sql/client) that
+        wraps the HTTP Sync API and emits a live stream of shape log messages.
+
+    - name: Shape (TypeScript)
+      description: >-
+        The high-level TypeScript client primitive that materializes a
+        ShapeStream into a local key-value Map, keeping it up-to-date with
+        real-time Postgres changes.
+
+    - name: Long Polling
+      description: >-
+        The default real-time delivery mode. With live=true, the server holds
+        the connection open until new data is available, then flushes and
+        closes. The client immediately issues a new request.
+
+    - name: Server-Sent Events (SSE)
+      description: >-
+        An alternative real-time delivery mode enabled with live_sse=true.
+        The server maintains a persistent connection and pushes messages as
+        they arrive, with keep-alive comments every 21 seconds.
+
+    - name: Replica Mode
+      description: >-
+        Controls row completeness in update/delete messages. 'default' sends
+        only changed columns (updates) or the PK (deletes). 'full' sends the
+        entire row and includes old_value for updates.
+
+    - name: LSN
+      description: >-
+        PostgreSQL Logical Sequence Number. A monotonically increasing
+        identifier for write-ahead log positions. Used to order operations
+        within and across transactions.
+
+    - name: PGlite
+      description: >-
+        An embeddable WebAssembly build of PostgreSQL under 3 MB, produced by
+        the ElectricSQL team. Enables running Postgres directly in the browser
+        or edge environment.
+
+    - name: Durable Streams
+      description: >-
+        An ElectricSQL platform capability built on the shape sync protocol
+        that provides reliable, ordered message delivery for AI agent
+        communication patterns.
+
+    - name: ELECTRIC_SECRET
+      description: >-
+        Server-side configuration variable defining the authentication token
+        clients must supply via the 'secret' query parameter when calling the
+        HTTP API.
+
+    - name: allow_shape_deletion
+      description: >-
+        A server-side configuration flag (ELECTRIC_ALLOW_SHAPE_DELETION) that
+        must be enabled for the DELETE /v1/shape endpoint to function.

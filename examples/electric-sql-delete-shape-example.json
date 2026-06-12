@@ -1,0 +1,13 @@
+{
+  "description": "Example DELETE /v1/shape request that removes a shape from the Electric sync engine. Requires ELECTRIC_ALLOW_SHAPE_DELETION=true on the server.",
+  "request": {
+    "method": "DELETE",
+    "url": "http://localhost:3000/v1/shape?table=issues&handle=3833821-1721812114261",
+    "headers": {}
+  },
+  "response": {
+    "status": 202,
+    "body": null,
+    "note": "The shape handle is invalidated and storage is cleaned up asynchronously. Subsequent client requests will create a new shape and resync from scratch."
+  }
+}
