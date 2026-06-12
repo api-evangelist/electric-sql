@@ -1,0 +1,109 @@
+---
+aid: electric-sql
+name: ElectricSQL
+description: >-
+  ElectricSQL (Electric) is a local-first sync engine for Postgres that streams
+  live database changes to embedded clients in browsers, apps, and AI agents via
+  an HTTP-based Shape sync protocol. It exposes a low-level HTTP API and
+  TypeScript, Elixir, and other client SDKs that materialize real-time Postgres
+  data into local state with sub-millisecond reactivity. Developers can run
+  Electric self-hosted as a Docker service or use Electric Cloud, a managed
+  offering with pay-as-you-go and subscription plans. The platform also
+  underpins PGlite (an embeddable Postgres under 3 MB) and Durable Streams for
+  reliable agent messaging, making it a broader data-infrastructure toolkit for
+  building collaborative and multi-agent systems.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Developer Tools
+  - Database
+  - Sync
+  - Local-First
+  - Postgres
+  - Real-Time
+  - Open Source
+url: https://raw.githubusercontent.com/api-evangelist/electric-sql/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: electric-sql:http-sync-api
+    name: Electric HTTP Sync API
+    description: >-
+      The core HTTP API that syncs Shapes of Postgres data to clients. Clients
+      issue GET /v1/shape requests with table and offset parameters to receive
+      shape log entries as newline-delimited JSON; a live=true flag enables
+      long-polling and live_sse=true switches to Server-Sent Events for
+      real-time streaming. Authentication is handled via the ELECTRIC_SECRET
+      token or a backend proxy pattern.
+    humanURL: https://electric.ax/docs/api/http
+    baseURL: https://api.electric-sql.cloud
+    tags:
+      - Sync
+      - HTTP API
+      - Real-Time
+      - Postgres
+    properties:
+      - type: Documentation
+        url: https://electric.ax/docs/api/http
+  - aid: electric-sql:typescript-client
+    name: Electric TypeScript Client
+    description: >-
+      The official @electric-sql/client NPM package that wraps the HTTP Sync API
+      with two high-level primitives: ShapeStream (low-level message stream) and
+      Shape (materialized view). Supports SSE, long-polling fallback, custom
+      auth headers, PostgreSQL type parsers, and column mapping utilities for
+      browser and Node.js environments.
+    humanURL: https://electric.ax/docs/api/clients/typescript
+    tags:
+      - TypeScript
+      - SDK
+      - Client Library
+      - JavaScript
+    properties:
+      - type: Documentation
+        url: https://electric.ax/docs/api/clients/typescript
+  - aid: electric-sql:sync-service-config-api
+    name: Electric Sync Service Configuration API
+    description: >-
+      Environment-variable-driven configuration interface for the Electric sync
+      service (Elixir/Docker). Controls database connectivity, storage backends,
+      concurrent request limits (initial: 300, live: 10 000), shape eviction,
+      authentication secrets, and TCP timeouts. Returns 503 when concurrent
+      request caps are exceeded.
+    humanURL: https://electric.ax/docs/api/config
+    tags:
+      - Configuration
+      - Self-Hosted
+      - DevOps
+    properties:
+      - type: Documentation
+        url: https://electric.ax/docs/api/config
+common:
+  - type: Website
+    url: https://electric.ax
+  - type: Documentation
+    url: https://electric.ax/docs/sync/
+  - type: GitHubOrganization
+    url: https://github.com/electric-sql
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/electric-sql
+  - type: Blog
+    url: https://electric.ax/blog
+  - type: Changelog
+    url: https://electric.ax/changelog
+  - type: Pricing
+    url: https://electric.ax/pricing
+  - type: X
+    url: https://x.com/ElectricSQL
+  - type: Discord
+    url: https://discord.electric-sql.com
+  - type: Plans
+    url: plans/electric-sql-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/electric-sql-rate-limits.yml
+  - type: FinOps
+    url: finops/electric-sql-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

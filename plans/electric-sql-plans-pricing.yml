@@ -1,0 +1,217 @@
+---
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: ElectricSQL
+providerId: electric-sql
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Database Sync
+  - Local-First
+  - Postgres
+description: ElectricSQL offers four Electric Cloud tiers — PAYG (free base), Pro, Scale, and Enterprise — priced on write volume with reads, egress, and fan-out always free.
+sources:
+  - https://electric.ax/pricing
+plans:
+  - id: electric-sql-payg
+    name: Pay As You Go
+    type: freemium
+    description: No monthly fee; billed purely on writes and shape retention. Under $5/month is waived. Maximum 10 databases.
+    entries:
+      - label: Monthly Base Fee
+        name: monthly_base_fee
+        type: boolean
+        metric: months
+        limit: 0
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+      - label: Writes (Electric Sync)
+        name: writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$1.00'
+        userMultiplied: false
+      - label: Postgres Sync Additional Write Charge
+        name: postgres_sync_writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$2.00'
+        userMultiplied: false
+      - label: Shape Retention Storage
+        name: retention_storage
+        type: metered
+        metric: gb_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0.10'
+        userMultiplied: false
+      - label: Max Databases
+        name: max_databases
+        type: quota
+        metric: databases
+        limit: 10
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+      - label: Reads / Egress / Fan-out
+        name: reads_egress_fanout
+        type: boolean
+        metric: requests
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+  - id: electric-sql-pro
+    name: Pro
+    type: paid
+    description: $249/month acts as prepaid credit with 10% discount on writes and retention. Up to 50 databases, priority email support, and Postgres subqueries included.
+    entries:
+      - label: Monthly Fee (Prepaid Credit)
+        name: monthly_fee
+        type: boolean
+        metric: months
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$249'
+        userMultiplied: false
+      - label: Writes (Electric Sync)
+        name: writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.90'
+        userMultiplied: false
+      - label: Postgres Sync Additional Write Charge
+        name: postgres_sync_writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$1.80'
+        userMultiplied: false
+      - label: Shape Retention Storage
+        name: retention_storage
+        type: metered
+        metric: gb_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0.09'
+        userMultiplied: false
+      - label: Max Databases
+        name: max_databases
+        type: quota
+        metric: databases
+        limit: 50
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+  - id: electric-sql-scale
+    name: Scale
+    type: paid
+    description: $1,999/month (6-month commitment) with 20% discount on writes and retention. Up to 200 databases and direct founder access for support.
+    entries:
+      - label: Monthly Fee (Prepaid Credit)
+        name: monthly_fee
+        type: boolean
+        metric: months
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$1999'
+        userMultiplied: false
+      - label: Writes (Electric Sync)
+        name: writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$0.80'
+        userMultiplied: false
+      - label: Postgres Sync Additional Write Charge
+        name: postgres_sync_writes_per_million
+        type: metered
+        metric: million_writes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000000
+        price: '$1.60'
+        userMultiplied: false
+      - label: Shape Retention Storage
+        name: retention_storage
+        type: metered
+        metric: gb_month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0.08'
+        userMultiplied: false
+      - label: Max Databases
+        name: max_databases
+        type: quota
+        metric: databases
+        limit: 200
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+  - id: electric-sql-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing and terms, unlimited databases and users, custom SLAs, and dedicated support.
+    entries:
+      - label: Monthly Fee
+        name: monthly_fee
+        type: boolean
+        metric: months
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Custom'
+        userMultiplied: false
+      - label: Max Databases
+        name: max_databases
+        type: quota
+        metric: databases
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Custom'
+        userMultiplied: false

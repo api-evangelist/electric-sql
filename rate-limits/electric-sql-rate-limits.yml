@@ -1,0 +1,36 @@
+---
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: ElectricSQL
+providerId: electric-sql
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Sync
+  - Concurrency
+description: Electric enforces concurrency limits on the sync service rather than traditional per-second rate limits; initial sync requests cap at 300 concurrent and live streaming requests at 10,000 concurrent, returning 503 when exceeded.
+sources:
+  - https://electric.ax/docs/api/config
+headers:
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 503
+limits:
+  - name: Initial Sync Concurrent Requests
+    scope: service
+    metric: concurrent_requests
+    limit: 300
+    timeFrame: instant
+  - name: Live Streaming Concurrent Requests
+    scope: service
+    metric: concurrent_requests
+    limit: 10000
+    timeFrame: instant
+  - name: Shape Log Response Chunk Size
+    scope: request
+    metric: bytes
+    limit: 10485760
+    timeFrame: usage
