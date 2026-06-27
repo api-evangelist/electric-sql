@@ -3,19 +3,12 @@
   "feeds": [
     {
       "source": "https://electric.ax/blog",
-      "feed_url": "https://electric.ax/blog",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://www.linkedin.com/company/electric-sql",
-      "feed_url": "https://www.linkedin.com/company/electric-sql",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "feed_url": "",
+      "saved": 2,
+      "method": "agent-scrape"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 3,
+  "fetched": "2026-06-27T12:38:20Z",
+  "agent_pulled": "2026-06-27"
 }

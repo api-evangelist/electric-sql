@@ -92,7 +92,7 @@ common:
     url: https://www.linkedin.com/company/electric-sql
   - type: Blog
     url: https://electric.ax/blog
-  - type: Changelog
+  - type: ChangeLog
     url: https://electric.ax/changelog
   - type: Pricing
     url: https://electric.ax/pricing
@@ -114,7 +114,7 @@ common:
     url: json-ld/electric-sql-context.jsonld
   - type: Vocabulary
     url: vocabulary/electric-sql-vocabulary.yml
-  - type: Blogs
+  - type: Blog
     url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
