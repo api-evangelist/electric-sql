@@ -2,13 +2,11 @@
   "repo": "electric-sql",
   "feeds": [
     {
-      "source": "https://electric.ax/blog",
-      "feed_url": "",
-      "saved": 2,
-      "method": "agent-scrape"
+      "source": "https://www.linkedin.com/company/electric-sql",
+      "error": "HTTPError"
     }
   ],
   "post_count": 3,
-  "fetched": "2026-06-27T12:38:20Z",
-  "agent_pulled": "2026-06-27"
+  "fetched": "2026-07-11T11:50:51Z",
+  "agent_pulled": "2026-07-04"
 }
