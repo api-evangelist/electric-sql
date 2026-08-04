@@ -1,0 +1,14 @@
+{
+  "provider": "electric-sql",
+  "sources": [
+    "electric-sql-shape-api-openapi.yml"
+  ],
+  "outputs": [
+    "electric-sql-shape-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
