@@ -33,6 +33,14 @@ tags:
   - Local-First
   - Postgres
   - Real-Time
+  - Open-Source
+tags_raw:
+  - Developer Tools
+  - Database
+  - Sync
+  - Local-First
+  - Postgres
+  - Real-Time
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/electric-sql/refs/heads/main/apis.yml
 created: '2026-06-12'
