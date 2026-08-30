@@ -139,8 +139,6 @@ common:
     url: json-ld/electric-sql-context.jsonld
   - type: Vocabulary
     url: vocabulary/electric-sql-vocabulary.yml
-  - type: Blog
-    url: blogs/blogs.json
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
