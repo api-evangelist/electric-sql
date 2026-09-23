@@ -1,7 +1,7 @@
 {
   "provider": "electric-sql",
   "sources": [
-    "electric-sql-shape-api-openapi.yml"
+    "_original/electric-sql-http-sync-api-openapi.yml"
   ],
   "outputs": [
     "electric-sql-shape-api-openapi.yml"
@@ -9,6 +9,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "electric-sql-http-sync-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "electric-sql-http-sync-api-openapi.yml: tagged paths GET /v1/shape -> Shape",
+    "electric-sql-http-sync-api-openapi.yml: tagged paths POST /v1/shape -> Shape",
+    "electric-sql-http-sync-api-openapi.yml: tagged paths DELETE /v1/shape -> Shape",
+    "electric-sql-http-sync-api-openapi.yml: declared missing tag: Shape",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "electric-sql-shape-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
