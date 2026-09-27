@@ -43,9 +43,9 @@ tags:
   - Database
   - Sync
   - Local-First
-  - Postgres
+  - PostgreSQL
   - Real-Time
-  - Open-Source
+  - Open Source
 tags_raw:
   - Developer Tools
   - Database
@@ -54,6 +54,7 @@ tags_raw:
   - Postgres
   - Real-Time
   - Open Source
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/electric-sql/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'

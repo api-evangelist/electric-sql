@@ -1231,6 +1231,16 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
+    api_secret:
+      name: api_secret
+      in: query
+      schema:
+        type: string
+      example: 1U6ItbhoQb4kGUU5wXBLbxvNf
+      deprecated: true
+      description: 'Deprecated in favor of the `secret` query parameter.
+
+        Will be removed in v2.'
     secret:
       name: secret
       in: query
@@ -1244,13 +1254,3 @@ components:
         `ELECTRIC_INSECURE` is set to `true`. More details are
 
         available in the [security guide](https://electric-sql.com/docs/guides/security).'
-    api_secret:
-      name: api_secret
-      in: query
-      schema:
-        type: string
-      example: 1U6ItbhoQb4kGUU5wXBLbxvNf
-      deprecated: true
-      description: 'Deprecated in favor of the `secret` query parameter.
-
-        Will be removed in v2.'
