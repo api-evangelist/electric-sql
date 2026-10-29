@@ -1,4 +1,4 @@
-# ElectricSQL (electric-sql)
+# ElectricSQL
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,49 +64,153 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ElectricSQL (Electric) is a local-first sync engine for Postgres that streams live database changes to browsers, apps, and AI agents via an HTTP-based Shape sync protocol. It provides a managed Electric Cloud service as well as a self-hosted Docker image, along with TypeScript and Elixir client SDKs. The platform also encompasses PGlite (an embeddable Postgres under 3 MB) and Durable Streams for agent messaging.
+ElectricSQL (Electric) is a local-first sync engine for Postgres that streams live database changes to embedded clients in browsers, apps, and AI agents via an HTTP-based Shape sync protocol. It exposes a low-level HTTP API and TypeScript, Elixir, and other client SDKs that materialize real-time Postgres data into local state with sub-millisecond reactivity. Developers can run Electric self-hosted as a Docker service or use Electric Cloud, a managed offering with pay-as-you-go and subscription plans. The platform also underpins PGlite (an embeddable Postgres under 3 MB) and Durable Streams for reliable agent messaging, making it a broader data-infrastructure toolkit for building collaborative and multi-agent systems.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/electric-sql/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/electric-sql/refs/heads/main/apis.yml)
+**Areas:** Developer Tools · Database · Sync · Local-First · PostgreSQL · Real-Time · Open Source
 
-Run with Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=electric-sql-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=electric-sql-api-evangelist&utm_content=repo)
+## ElectricSQL on APIs.io
 
-## Tags
+Everything profiled for ElectricSQL is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/electric-sql/](https://apis.io/providers/electric-sql/)** — or go straight to one of the APIs or properties below.
 
-Developer Tools, Database, Sync, Local-First, Postgres, Real-Time, Open Source
+### APIs (3)
 
-## APIs
+- [Electric TypeScript Client](https://apis.io/apis/electric-sql/typescript-client/) — The official @electric-sql/client NPM package that wraps the HTTP Sync API with two high-level primitives: ShapeStream (low-level message stream) and Shape…
+- [Electric Sync Service Configuration API](https://apis.io/apis/electric-sql/sync-service-config-api/) — Environment-variable-driven configuration interface for the Electric sync service (Elixir/Docker). Controls database connectivity, storage backends,…
+- [ElectricSQL Shape API](https://apis.io/apis/electric-sql/electric-sql-shape-api/) — The Shape API from ElectricSQL — 1 operation(s) for shape.
 
-- [Electric HTTP Sync API](https://electric.ax/docs/api/http) — Core `GET /v1/shape` endpoint that streams Postgres shape log entries to clients via long-polling or Server-Sent Events.
-- [Electric TypeScript Client](https://electric.ax/docs/api/clients/typescript) — `@electric-sql/client` NPM package with `ShapeStream` and `Shape` primitives for browser and Node.js environments.
-- [Electric Sync Service Configuration API](https://electric.ax/docs/api/config) — Environment-variable interface for self-hosted Electric sync service deployments.
+### Published properties
 
-## Plans, Rate Limits, and FinOps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | File |
-|----------|------|
-| Plans & Pricing | [plans/electric-sql-plans-pricing.yml](plans/electric-sql-plans-pricing.yml) |
-| Rate Limits | [rate-limits/electric-sql-rate-limits.yml](rate-limits/electric-sql-rate-limits.yml) |
-| FinOps | [finops/electric-sql-finops.yml](finops/electric-sql-finops.yml) |
+#### Agentic access (1)
 
-## Timestamps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Created: 2026-06-12
-- Modified: 2026-06-12
+- [Electric Sql Agentic Access](https://apis.io/agentic-access/electric-sql/electric-sql-agentic-access/)
 
-## Common Properties
+#### JSON Schema (2)
 
-| Type | URL |
-|------|-----|
-| Website | https://electric.ax |
-| Documentation | https://electric.ax/docs/sync/ |
-| GitHub Organization | https://github.com/electric-sql |
-| LinkedIn | https://www.linkedin.com/company/electric-sql |
-| Blog | https://electric.ax/blog |
-| Changelog | https://electric.ax/changelog |
-| Pricing | https://electric.ax/pricing |
-| X (Twitter) | https://x.com/ElectricSQL |
-| Discord | https://discord.electric-sql.com |
+The data models the API reads and writes.
 
-## Maintainers
+- [ShapeMessage](https://apis.io/schemas/electric-sql/electric-sql-shape-message/)
+- [SubsetSnapshot](https://apis.io/schemas/electric-sql/electric-sql-subset-snapshot/)
 
-- Kin Lane / kin@apievangelist.com
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Electric Sql Context](https://apis.io/jsonld/electric-sql/electric-sql-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [ElectricSQL Vocabulary](https://apis.io/vocabularies/electric-sql/electric-sql-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Electric Sql Delete Shape Example](https://apis.io/examples/electric-sql/electric-sql-delete-shape-example/)
+- [Electric Sql Get Shape Example](https://apis.io/examples/electric-sql/electric-sql-get-shape-example/)
+- [Electric Sql Post Shape Subset Example](https://apis.io/examples/electric-sql/electric-sql-post-shape-subset-example/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Electric HTTP Shape API](https://apis.io/collections/electric-sql/open-electric-sql-shape-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [ElectricSQL — jsonschema rules](https://apis.io/rules/electric-sql/electric-sql-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Electric Sql Domain Security](https://apis.io/security/electric-sql/electric-sql-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Electric Sql Plans Pricing](https://apis.io/plans/electric-sql/electric-sql-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Electric Sql Rate Limits](https://apis.io/rate-limits/electric-sql/electric-sql-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Electric Sql Finops](https://apis.io/finops/electric-sql/electric-sql-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://electric.ax)
+- [Documentation](https://electric.ax/docs/sync/)
+- [Pricing](https://electric.ax/pricing)
+- [Changelog](https://electric.ax/changelog)
+- [Blog](https://electric.ax/blog)
+- [GitHub](https://github.com/electric-sql)
+
+## API Evangelist rating
+
+**Kin Score 29.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 47.7 |
+| Contract governance | 23.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 18.4 |
+
+**Agent readiness 20.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/electric-sql/](https://apis.io/providers/electric-sql/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ElectricSQL: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/electric-sql/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
